@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ovz-GL-5CR">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Photo filter-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PhotoViewController" customModule="PhotoFilter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,167 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="dog.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="VvD-hN-hIP">
+                                <rect key="frame" x="16" y="64" width="342" height="539"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qy1-V1-1lB">
+                                <rect key="frame" x="16" y="593" width="343" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYl-It-anA">
+                                        <rect key="frame" x="0.0" y="0.0" width="107.5" height="30"/>
+                                        <state key="normal" title="Bluer"/>
+                                        <connections>
+                                            <action selector="increaseHue:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2OS-Ut-PVE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5M1-Cj-k10">
+                                        <rect key="frame" x="117.5" y="0.0" width="108" height="30"/>
+                                        <state key="normal" title="Origin">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="origin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0MB-NN-7eb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9U-3D-San">
+                                        <rect key="frame" x="235.5" y="0.0" width="107.5" height="30"/>
+                                        <state key="normal" title="Redder">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="decreaseHue:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zrL-A1-Cii"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpt-wE-Gwe">
+                                <rect key="frame" x="318" y="64" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="SAVE"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ssx-ke-Oho"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="VvD-hN-hIP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="13Y-yn-gwS"/>
+                            <constraint firstItem="qy1-V1-1lB" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="78M-qD-xe7"/>
+                            <constraint firstItem="qy1-V1-1lB" firstAttribute="centerX" secondItem="VvD-hN-hIP" secondAttribute="centerX" id="FHG-hF-y1K"/>
+                            <constraint firstItem="VvD-hN-hIP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="IHJ-ES-57u"/>
+                            <constraint firstItem="VvD-hN-hIP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="VaZ-lm-DK4"/>
+                            <constraint firstItem="VvD-hN-hIP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jCj-kH-759"/>
+                            <constraint firstItem="qy1-V1-1lB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="yBt-ZV-HBy"/>
+                        </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Photo filter" id="6Mc-Lf-RCV"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="VvD-hN-hIP" id="OQy-n8-jxW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1228" y="136"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rpW-Jb-beb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ovz-GL-5CR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a8S-eU-pXG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Phd-zP-Wyd" kind="relationship" relationship="rootViewController" id="wyi-TG-REa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F2k-4U-LMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-202" y="135"/>
+        </scene>
+        <!--Get Photo View Controller-->
+        <scene sceneID="xI6-SN-WBp">
+            <objects>
+                <viewController id="Phd-zP-Wyd" customClass="GetPhotoViewController" customModule="PhotoFilter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ppi-MT-WaW"/>
+                        <viewControllerLayoutGuide type="bottom" id="eLy-ZY-MnS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Y4F-Q7-Iip">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CYx-Gr-3P1">
+                                <rect key="frame" x="16" y="155" width="343" height="357"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vT-eN-aJ5">
+                                <rect key="frame" x="132" y="552" width="110" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="ZBb-7M-DUa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Apply Filter">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="pKh-h8-fEj"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kUA-fi-tz9">
+                                <rect key="frame" x="49" y="83" width="260" height="36"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OfY-Pn-dun">
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Open Photos"/>
+                                        <connections>
+                                            <action selector="getBtn:" destination="Phd-zP-Wyd" eventType="touchUpInside" id="6nV-WN-wmw"/>
+                                            <action selector="openPhotoLibraryButton:" destination="Phd-zP-Wyd" eventType="touchUpInside" id="v2t-0f-o4M"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlm-Lr-5eK">
+                                        <rect key="frame" x="135" y="0.0" width="125" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Open Camera">
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openCamera:" destination="Phd-zP-Wyd" eventType="touchUpInside" id="PYR-dw-9hG"/>
+                                            <action selector="openCameraButton:" destination="Phd-zP-Wyd" eventType="touchUpInside" id="d5T-MD-g1L"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CYx-Gr-3P1" firstAttribute="centerY" secondItem="Y4F-Q7-Iip" secondAttribute="centerY" id="DF6-Ku-1aM"/>
+                            <constraint firstItem="CYx-Gr-3P1" firstAttribute="leading" secondItem="Y4F-Q7-Iip" secondAttribute="leadingMargin" id="I74-Xy-qye"/>
+                            <constraint firstItem="CYx-Gr-3P1" firstAttribute="trailing" secondItem="Y4F-Q7-Iip" secondAttribute="trailingMargin" id="Mik-nj-WVV"/>
+                            <constraint firstItem="eLy-ZY-MnS" firstAttribute="top" secondItem="0vT-eN-aJ5" secondAttribute="bottom" constant="65" id="O57-Vb-wz5"/>
+                            <constraint firstItem="kUA-fi-tz9" firstAttribute="top" secondItem="Ppi-MT-WaW" secondAttribute="bottom" constant="19" id="XGm-rY-yvj"/>
+                            <constraint firstItem="CYx-Gr-3P1" firstAttribute="top" secondItem="kUA-fi-tz9" secondAttribute="bottom" constant="36" id="ZVs-as-z0W"/>
+                            <constraint firstItem="kUA-fi-tz9" firstAttribute="leading" secondItem="Y4F-Q7-Iip" secondAttribute="leadingMargin" constant="33" id="kiX-b0-paw"/>
+                            <constraint firstItem="0vT-eN-aJ5" firstAttribute="top" secondItem="CYx-Gr-3P1" secondAttribute="bottom" constant="40" id="pq2-82-NOq"/>
+                            <constraint firstItem="0vT-eN-aJ5" firstAttribute="centerX" secondItem="CYx-Gr-3P1" secondAttribute="centerX" id="z0Z-eI-I3c"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="zku-Go-KME"/>
+                    <connections>
+                        <outlet property="imgView" destination="CYx-Gr-3P1" id="MIu-ma-IYd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="431-JY-tEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="544.79999999999995" y="134.48275862068968"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dog.jpg" width="457" height="640"/>
+    </resources>
 </document>
