@@ -31,7 +31,7 @@ class PhotoViewController: UIViewController {
         // Create an image filter
         let inputImage = CIImage(image: imageView.image!)
         
-        // Create a random color to be passed to a filter
+        // Create a bluer color to be passed to a filter
         var filter = 0.5
         if hueAdjusted == -3.0 {
             filter = 0.0
@@ -52,7 +52,7 @@ class PhotoViewController: UIViewController {
         // Create an image filter
         let inputImage = CIImage(image: imageView.image!)
         
-        // Create a random color to be passed to a filter
+        // Create a redder color to be passed to a filter
         var filter = -0.5
         if hueAdjusted == 3.0 {
             filter = 0.0
